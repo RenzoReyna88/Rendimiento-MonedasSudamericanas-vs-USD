@@ -44,7 +44,7 @@ def main():
     
     monedas = list(data.keys())
     
-    st.write("Por favor, selecciona una moneda en la barra lateral (haz clic en '>' si no la ves).")
+    st.write("Por favor, selecciona una moneda en la barra lateral (haz clic en '>' Aquí arriba a la izquierda de la pantalla).")
     moneda_seleccionada = st.sidebar.selectbox("Selecciona una moneda para analizar", monedas)
     st.write(f"Moneda seleccionada: {moneda_seleccionada}")
     df1 = data[moneda_seleccionada]
