@@ -45,14 +45,6 @@ def main():
     monedas = list(data.keys())
     
     moneda_seleccionada = st.sidebar.selectbox("Selecciona una moneda", monedas)
-
-    copyright_ = st.sidebar.text('© Renzo Reyna - Data Analyst / Python Developer')
-
-    telefono_ = st.sidebar.text('Teléfono: + 54 3525 - 620842 (Argentina)')
-    mail_ = st.sidebar.text('Email: desarrollador.sarmientino@gmail.com')
-    
-
-    
     
     df1 = data[moneda_seleccionada]
     
@@ -73,6 +65,12 @@ def main():
         st.plotly_chart(fig)
     else:
         st.error("Los datos no tienen las columnas esperadas (Fecha y Valor). Verifica el formato de los archivos CSV.")
+
+    st.text('© Renzo Reyna - Data Analyst / Python Developer')
+
+    st.text("CONTACTOS: \n Teléfono: +54 3525 - 620842 (Argentina) \n Email: desarrollador.sarmientino@gmail.com")
+
+
 
 if __name__ == "__main__":
     main()
