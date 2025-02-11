@@ -44,7 +44,7 @@ def main():
     
     monedas = list(data.keys())
     
-    moneda_seleccionada = st.sidebar.selectbox("Selecciona una moneda", monedas)
+    moneda_seleccionada = st.sidebar.selectbox("Selecciona una moneda", monedas, label_visibility='visible')
     
     df1 = data[moneda_seleccionada]
     
