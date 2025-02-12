@@ -69,7 +69,7 @@ def main():
                             tickformat=",.6f"
                         )
                     )
-        st.title("Análisis de monedas de Países Sudamericanos en USD($ En centavos)")
+        st.title("Análisis de monedas de Países Sudamericanos en USD")
         st.plotly_chart(fig)
     else:
         st.error("Los datos no tienen las columnas esperadas (Fecha y Valor). Verifica el formato de los archivos CSV.")
