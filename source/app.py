@@ -6,6 +6,7 @@ import plotly.express as px
 def load_data():
 
     try:
+
         data = {
             "Guaraní Paraguayo": pd.read_csv('source/archivosCSV/GuaraniParaguayo.csv', sep=','),
             "Peso Argentino": pd.read_csv('source/archivosCSV/PesoArgentino.csv', sep=','),
@@ -15,10 +16,16 @@ def load_data():
             "Real Brasileño": pd.read_csv('source/archivosCSV/RealBrasileño.csv', sep=','),
             "Sol Peruano": pd.read_csv('source/archivosCSV/SolPeruano.csv', sep=',')
         }
+
         return data
+    
+    except FileNotFoundError as e:
+        st.error(f"Archivo no encontrado: {str(e)}")
+    except pd.errors.ParserError as e:
+        st.error(f"Error al parsear el archivo CSV: {str(e)}")
     except Exception as e:
-        st.error(f"Error al cargar los datos: {str(e)}")
-        return {}
+        st.error(f"Error inesperado al cargar los datos: {str(e)}")
+    return {}
     
 
 
@@ -49,20 +56,20 @@ def main():
     st.write(f"Moneda seleccionada: {moneda_seleccionada}")
     df1 = data[moneda_seleccionada]
     
-    
-    if 'Período analizado' in df1.columns and 'Valor de conversión' in df1.columns and 'Período analizado':
+    required_columns = ['Período analizado', 'Valor de conversión']
+    if all(column in df1.columns for column in required_columns):
+        st.write("Datos cargados correctamente.")
         fig = px.line(df1, 
                       x='Período analizado', 
-                      y='Valor de conversión', 
-                      title='Valor de monedas de Países Sudamericanos en USD ($ En centavos)'
-                      
+                      y='Valor de conversión',                      
                       )
+        
         fig.update_layout(
                         yaxis=dict(
                             tickformat=",.6f"
                         )
                     )
-        
+        st.title("Análisis de monedas de Países Sudamericanos en USD($ En centavos)")
         st.plotly_chart(fig)
     else:
         st.error("Los datos no tienen las columnas esperadas (Fecha y Valor). Verifica el formato de los archivos CSV.")
