@@ -8,13 +8,13 @@ def load_data():
     try:
 
         data = {
-            "Guaraní Paraguayo": pd.read_csv('source/archivosCSV/GuaraniParaguayo.csv', sep=','),
-            "Peso Argentino": pd.read_csv('source/archivosCSV/PesoArgentino.csv', sep=','),
-            "Peso Boliviano": pd.read_csv('source/archivosCSV/PesoBoliviano.csv', sep=','),
-            "Peso Chileno": pd.read_csv('source/archivosCSV/PesoChileno.csv', sep=','),
-            "Peso Uruguayo": pd.read_csv('source/archivosCSV/PesoUruguayo.csv', sep=','),
-            "Real Brasileño": pd.read_csv('source/archivosCSV/RealBrasileño.csv', sep=','),
-            "Sol Peruano": pd.read_csv('source/archivosCSV/SolPeruano.csv', sep=',')
+            "Guaraní (Paraguay)": pd.read_csv('source/archivosCSV/GuaraniParaguayo.csv', sep=','),
+            "Peso (Argentina)": pd.read_csv('source/archivosCSV/PesoArgentino.csv', sep=','),
+            "Peso (Bolivia)": pd.read_csv('source/archivosCSV/PesoBoliviano.csv', sep=','),
+            "Peso (Chile)": pd.read_csv('source/archivosCSV/PesoChileno.csv', sep=','),
+            "Peso (Uruguay)": pd.read_csv('source/archivosCSV/PesoUruguayo.csv', sep=','),
+            "Real (Brasil)": pd.read_csv('source/archivosCSV/RealBrasileño.csv', sep=','),
+            "Sol (Perú)": pd.read_csv('source/archivosCSV/SolPeruano.csv', sep=',')
         }
 
         return data
